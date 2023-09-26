@@ -9,7 +9,7 @@ public class Day02_FirefoxTest {
 //        Create firefox driver
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
-//        Open google home page https://www.amazon.com/
+//        Open home page https://www.amazon.com/
         driver.get("https://www.amazon.com/");
 //        Maximize the window
         driver.manage().window().maximize();

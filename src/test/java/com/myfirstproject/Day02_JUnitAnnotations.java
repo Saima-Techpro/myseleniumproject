@@ -7,10 +7,12 @@ public class Day02_JUnitAnnotations {
     /*
     1. @Test : This is used to create TEST CASES.
     This is one of the most common annotation that we will use
+
     Note that all test methods should be void
+
     2. @BeforeAll and @AfterAll runs only ONCE before or after each CLASS
     3. @BeforeEach and @AfterEach runs only ONCE before or after each METHOD
-    4. @Disabled is used to ignore/skip a test case
+    4. @Disabled is used to ignore/skip a test case in JUnit 5
      */
     @BeforeAll
     public static void setUpClass(){
@@ -28,6 +30,7 @@ public class Day02_JUnitAnnotations {
     public void tearDownMethods(){
         System.out.println("After Each...");
     }
+
     @Test
     public void test1(){
         System.out.println("Test Case 1...");

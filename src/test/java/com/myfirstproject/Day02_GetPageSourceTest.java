@@ -10,12 +10,16 @@ public class Day02_GetPageSourceTest {
 //        Test if amazon contains “Registry” on the homepage
         driver.get("https://www.amazon.com/");
         String pageSource = driver.getPageSource();//returns the current source code on the page
-        System.out.println(pageSource);
+        // System.out.println(pageSource);
+
+        // Verification
         if (pageSource.contains("Registry")){//Verification
             System.out.println("PASS");
         }else {
             System.out.println("FAIL Registry is not exists on the page...");
         }
+
+        // Close the browser
         driver.quit();
     }
 }

@@ -21,3 +21,6 @@ public class FirstSeleniumClass {
         driver.get("https://www.google.com/");
     }
 }
+
+
+//     command + n ... allows you to add dependency directly from pom.xml file

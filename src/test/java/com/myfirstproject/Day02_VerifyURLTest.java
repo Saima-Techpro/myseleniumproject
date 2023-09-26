@@ -7,16 +7,20 @@ public class Day02_VerifyURLTest {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        Navigate to Amazon homepage 
+//        Navigate to Amazon homepage
         driver.get("https://www.amazon.com");
 //        Verify if amazon homepage url is “https://amazon.com/”
         String currentURL = driver.getCurrentUrl();
         System.out.println("Current URL : "+currentURL);
+
+        // Verification
         if (currentURL.equals("https://amazon.com/")){
             System.out.println("PASS");
         }else {
-            System.out.println("FAIL : Actual URL "+currentURL+" but expected URL is https://amazon.com/");
+            System.out.println("FAIL : Actual URL is: "+currentURL+" but expected URL is https://amazon.com/");
         }
+
+        // close the browser
         driver.quit();
     }
 }
@@ -25,6 +29,7 @@ QUOTE OF THE DAY:
 - Testers do not write a code to PASS
 - We write a code to CATCH A BUG
 
+For Example:
 - Our test case failed for this reason. FAIL : Actual URL https://www.amazon.com/ but expected URL is https://amazon.com/
 as tester, I shouldn't fix the code to PASS.
 STEPS:
