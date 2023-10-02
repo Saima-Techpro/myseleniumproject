@@ -19,13 +19,13 @@ public class Day05_IFrames extends TestBase {
         1. driver.switchTo().frame(1);
         2. driver.switchTo().frame("left");
         3. driver.switchTo().frame(driver.findElement(By.xpath("//frame[@name='left']")));
-        NOTE 2 : when you want to switch to non child such as sibling frames, we should go to parent then the child.
+        NOTE 2 : when you want to switch to non-child such as sibling frames, we should go to parent then the child.
         we can not jump directly to siblings
 
          */
         driver.switchTo().frame("left");
-//        NOT WE ARE INSIDE THIS IFRAME
-//                //li[last()]  => XPATH RETURNS THE LAST li ELEMENT
+//        NOW WE ARE INSIDE THIS IFRAME
+//                //li[last()]  => XPATH RETURNS THE LAST list ELEMENT
         String lastElement = driver.findElement(By.xpath("//li[last()]")).getText();
         System.out.println("LAST ELEMENT : "+lastElement);
         Assertions.assertTrue(lastElement.equals("Left List Item 29"));

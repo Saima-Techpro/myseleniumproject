@@ -21,9 +21,10 @@ public class Day05_Windows extends TestBase {
         NOTE: we must switch window 2 to get window to tile
          */
         String window1Handle = driver.getWindowHandle();
-        System.out.println(window1Handle);
+        System.out.println("Window 1: "+window1Handle);
         Set<String> allWindowHandles = driver.getWindowHandles();
-        System.out.println(allWindowHandles);
+        System.out.println("All Windows: "+allWindowHandles);
+
         for (String eachHandle : allWindowHandles){
             if (!eachHandle.equals(window1Handle)){
                 driver.switchTo().window(eachHandle);
@@ -37,7 +38,7 @@ public class Day05_Windows extends TestBase {
 //        Switch back to window 1 title and assert if URL contains “windows”
         driver.switchTo().window(window1Handle);
         Assertions.assertTrue(driver.getCurrentUrl().contains("windows"));
-//        And assert if the URL doesn’t contains ‘new’
+//        And assert if the URL doesn’t contain ‘new’
         Assertions.assertFalse(driver.getCurrentUrl().contains("new"));
 
 //        Switch back to window 2
