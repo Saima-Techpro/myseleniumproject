@@ -59,6 +59,8 @@ public class Day07_WebTables extends TestBase {
             colNum++;
         }
 
+        System.out.println("=======================================");
+
         //CALL printData method to test
         printData(2,3);//fbach@yahoo.com
 
@@ -73,7 +75,7 @@ public class Day07_WebTables extends TestBase {
 //        COMPLETE THE CODE
         // //table[@id='table1']//tr["+rowNum+"]//td["+colNumber+"]
         WebElement webElement = driver.findElement(By.xpath("//table[@id='table1']//tr["+rowNum+"]//td["+colNum+"]"));
-        System.out.println(webElement);
+        System.out.println(webElement.getText());
     }
 
 }
