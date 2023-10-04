@@ -37,8 +37,14 @@ public class Day07_WebTables extends TestBase {
         }
 //        Assert if the last element in the table 1 is "edit delete"
         Assertions.assertTrue(elementsList.get(elementsList.size()-1 ).getText().equals("edit delete"));
+        Assertions.assertTrue(elementsList.get(1).getText().equals("John"));// to check any other element on the webtable, provide that index
 
+        //Assertions.assertTrue(elementsList.indexOf("John").equals("John")); // this doesn't work as indexOf() returns int, but for assertion, both data types should be same
+        WebElement givenElement = elementsList.get(1);
+        System.out.println("givenElement = " + givenElement.getText());
+        Assertions.assertTrue(givenElement.getText().equals("John"));
         System.out.println("=======================================");
+
         System.out.println("***Task 2 : Print All Rows***");
         List<WebElement> allRows = driver.findElements(By.xpath("//table[@id='table1']//tr"));
         int rowNum = 1;
