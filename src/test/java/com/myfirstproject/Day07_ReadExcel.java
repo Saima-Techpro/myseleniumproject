@@ -56,7 +56,7 @@ public class Day07_ReadExcel {
         }
     }
      /*
-       HOMEWORK : Print country, capitol key value pairs as map object()
+       HOMEWORK : Print country, capital key value pairs as map object()
         create a map
         then use a loop to add key-value pairs in the map
         use the pattern of indexes

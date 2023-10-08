@@ -67,7 +67,7 @@ public class Day07_WebTables extends TestBase {
 
         System.out.println("=======================================");
 
-        //CALL printData method to test
+        //Call printData method to test
         printData(2,3);//fbach@yahoo.com
 
     }
