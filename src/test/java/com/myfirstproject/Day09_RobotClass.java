@@ -13,12 +13,17 @@ public class Day09_RobotClass extends TestBase {
     @Test
     public void fileUploadTest() throws AWTException {
         driver.get("https://testpages.herokuapp.com/styled/file-upload-test.html ");
-        String pathOfFlower = System.getProperty("user.home") + "/Desktop/flower.jpeg";//mac
-//        String pathOfFlower = System.getProperty("user.home") + "\\Desktop\\flower.jpeg";//windows
-        System.out.println(pathOfFlower);
+        // IMPORTANT!!! click the "choose file" button
+        driver.findElement(By.xpath("//div[@class='form-label'][1]")).click();
+        waitFor(3);
+        // /Users/saima/Desktop/flower.jpeg
+        String pathOfImage = System.getProperty("user.home") + "/Desktop/flower.jpeg";//mac
+//        String pathOfImage = System.getProperty("user.home") + "\\Desktop\\flower.jpeg";//windows
+        System.out.println(pathOfImage);
 //        ROBOT CLASS
-        StringSelection ss= new StringSelection(pathOfFlower);
+        StringSelection ss= new StringSelection(pathOfImage);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
+        // we need the above 2 codes to create Robot object
         Robot robot = new Robot();
 //        pressing control V
         robot.keyPress(KeyEvent.VK_CONTROL);
@@ -34,17 +39,18 @@ public class Day09_RobotClass extends TestBase {
         robot.keyPress(KeyEvent.VK_ENTER);
         waitFor(3);
 //        release enter
+
         robot.keyRelease(KeyEvent.VK_ENTER);
         waitFor(3);
 //       file upload is done. then click upload button and do assertion
         driver.findElement(By.xpath("//input[@type='submit']")).click();
         waitFor(3);
 //        Then verify the ‘You uploaded a file. This is the result.’  Message displayed
-        Assertions.assertEquals(
-                "flower.jpeg" ,
-                driver.findElement(By.id("uploadedfilename")).getText(),
-                "File upload is not successful : Actual file name is not flower.jpeg"
-        );
+//        Assertions.assertEquals(
+//                "flower.jpeg" ,
+//                driver.findElement(By.id("uploadedfilename")).getText(),
+//                "File upload is not successful : Actual file name is not flower.jpeg"
+//        );
 //       Alternatively
         Assertions.assertEquals(
                 "You uploaded a file. This is the result.",

@@ -8,54 +8,17 @@ import org.openqa.selenium.By;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class Day09_FileExists extends TestBase {
-    /*
-        Given
-            Go to "https://cgi-lib.berkeley.edu/ex/fup.html"
-        When
-           Type "My File" into "Notes about the file" input
-        And
-            Click "Choose File" button
-        And
-            Select the file to upload
-        And
-            Click on "Press" button
-        Then
-            Assert that "Your notes on the file were" equals "My File"
-        And
-            Assert that file Content contains "Hello, I am uploaded file"
-    */
+
     @Test
-    public void test() {
-
-//        Go to "https://cgi-lib.berkeley.edu/ex/fup.html"
-        driver.get("https://cgi-lib.berkeley.edu/ex/fup.html");
-
-//        Type "My File" into "Notes about the file" input
-        driver.findElement(By.name("note")).sendKeys("My File");
-
-//        Click "Choose File" button
-//        Select the file to upload
-        driver.findElement(By.name("upfile")).sendKeys("C:/Users/TechProEd/Desktop/text.txt");
-
-//        Click on "Press" button
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
-
-//        Assert that "Your notes on the file were" equals "My File"
-        String note = driver.findElement(By.xpath("//blockquote")).getText();
-        System.out.println("note = " + note);
-        assertEquals("My File", note);
-
-//        Assert that file Content contains "Hello, I am uploaded file"
-        String content = driver.findElement(By.xpath("//pre")).getText();
-        System.out.println("content = " + content);
-        assertEquals("Hello, I am uploaded file", content);
-
-
+    public void fileExistTest() {
+//        Class: FileExistTest
+//        Method: isExist
+//        Pick a file on your desktop
+        String pathOfFlower = System.getProperty("user.home") + "/Desktop/flower.jpeg";
+        System.out.println(pathOfFlower);
+//        And verify if that file exist on your computer or not
+        boolean isFlowerExist = Files.exists(Paths.get(pathOfFlower));//checking is the path exist
+        Assertions.assertTrue(isFlowerExist);
     }
-
-
-
 }

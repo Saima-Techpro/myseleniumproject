@@ -28,6 +28,7 @@ public class Day10_ExplicitWait extends TestBase {
          */
 //      USING EXPLICIT WAIT
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));//create the object
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
         //1. wait for the element explicitly
         //2. return that element
 //        waiting for the WEBELEMENT  -> WORKS!!!!

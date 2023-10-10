@@ -27,7 +27,8 @@ public class Day10_FluentWait extends TestBase {
 ////      2. rest is the same as explicit wait
 //        WebElement helloWorld = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
 //        Assertions.assertEquals("Hello World!",helloWorld.getText());
- //        with reusable method
+
+        //        with reusable method
         WebElement helloWorld = fluentWait("//div[@id='finish']//h4",20,3);
         Assertions.assertEquals("Hello World!",helloWorld.getText());
     }

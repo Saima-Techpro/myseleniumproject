@@ -18,8 +18,8 @@ public class Day09_FileUpload extends TestBase {
         file upload system is created using file type=input element, so we can use sendKeys(PATH) to upload the file
          */
         WebElement chooseAFile = driver.findElement(By.id("fileinput"));
-        String pathOfFlower = System.getProperty("user.home") + "/Desktop/flower.jpeg";
-        chooseAFile.sendKeys(pathOfFlower);
+        String pathOfFile = System.getProperty("user.home") + "/Desktop/flower.jpeg";
+        chooseAFile.sendKeys(pathOfFile);
         waitFor(3);
 //        And click on the upload button
         driver.findElement(By.xpath("//input[@type='submit']")).click();
