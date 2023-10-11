@@ -11,6 +11,9 @@ public class Day11_NoSuchElementException extends TestBase {
     @Test
     public void noSuchElementTest(){
         driver.get("https://www.amazon.com");
+//        WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")); // correct locator
+//        searchBox.sendKeys("tea pot"+ Keys.ENTER);
+
         WebElement searchBox = driver.findElement(By.xpath("//input[@id=' twotabsearchtextbox']"));//NoSuchElementException due to the space. wrong locator
         searchBox.sendKeys("tea pot"+ Keys.ENTER);
     }
