@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Day05_Alerts extends TestBase {
 
     //    Go to https://testcenter.techproeducation.com/index.php?page=javascript-alerts
@@ -33,11 +35,11 @@ public class Day05_Alerts extends TestBase {
 //        !!!!!!!! NOW AT THIS POINT THERE IS AN ALERT ON THE PAGE THAT MUST BE HANDLED
 //    verify the text “I am a JS Alert” ,
         String alertText = driver.switchTo().alert().getText();
-        Assertions.assertTrue(alertText.equals("I am a JS Alert"));
+        assertTrue(alertText.equals("I am a JS Alert"));
 //    click OK ,
         driver.switchTo().alert().accept();
 //    and Verify “You successfully clicked an alert”
-        Assertions.assertTrue(driver.findElement(By.id("result")).getText().equals("You successfully clicked an alert"));
+        assertTrue(driver.findElement(By.id("result")).getText().equals("You successfully clicked an alert"));
     }
     @Test
     public void dismissAlert(){
@@ -46,11 +48,11 @@ public class Day05_Alerts extends TestBase {
         driver.findElement(By.xpath("//button[@onclick='jsConfirm()']")).click();
 //        ALERT POPS UP
 //    verify text "I am a JS Confirm”,
-        Assertions.assertTrue(driver.switchTo().alert().getText().equals("I am a JS Confirm"));
+        assertTrue(driver.switchTo().alert().getText().equals("I am a JS Confirm"));
 //    click cancel,
         driver.switchTo().alert().dismiss();
 //    and Verify “You clicked: Cancel”
-        Assertions.assertTrue(driver.findElement(By.id("result")).getText().equals("You clicked: Cancel"));
+        assertTrue(driver.findElement(By.id("result")).getText().equals("You clicked: Cancel"));
     }
     @Test
     public void sendKeysAlert(){
@@ -58,12 +60,12 @@ public class Day05_Alerts extends TestBase {
 //    sendKeysAlert()=> click on the third alert,
         driver.findElement(By.xpath("//button[@onclick='jsPrompt()']")).click();
 //    verify text “I am a JS prompt”,
-        Assertions.assertTrue(driver.switchTo().alert().getText().equals("I am a JS prompt"));
+        assertTrue(driver.switchTo().alert().getText().equals("I am a JS prompt"));
 //    type “Hello World”,
         driver.switchTo().alert().sendKeys("Hello World");
 //    click OK,
         driver.switchTo().alert().accept();
 //    and Verify “You entered: Hello World”
-        Assertions.assertTrue(driver.findElement(By.id("result")).getText().equals("You entered: Hello World"));
+        assertTrue(driver.findElement(By.id("result")).getText().equals("You entered: Hello World"));
     }
 }

@@ -31,6 +31,7 @@ import java.util.Random;
 
 public abstract class TestBase {
     /*
+    - We keep this class abstract because we don't want to create object from this class
     - TestBase class is used for calling repetitive pre-conditions and post-conditions
     - Make the driver protected because it should be visible in the other classes
 

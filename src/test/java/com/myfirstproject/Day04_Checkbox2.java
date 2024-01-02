@@ -15,7 +15,7 @@ import java.time.Duration;
 public class Day04_Checkbox2 extends TestBase {
 
     /*
-remove @Before and @After from this class. And extend it to TestBase
+remove @BeforeEach and @AfterEach from this class. And extend it to TestBase
 now this class is shorter and cleaner
  */
     @Test

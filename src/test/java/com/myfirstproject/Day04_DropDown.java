@@ -21,7 +21,7 @@ public class Day04_DropDown extends TestBase {
     @Test
     public void dropdownTest(){
         driver.get("https://testcenter.techproeducation.com/index.php?page=dropdown");
-//        2000 February 15
+//          Selected birthday => 2000 February 15
 //        1. locate the dropdown element
         WebElement year = driver.findElement(By.id("year"));
 //        2. create a Select Object
@@ -40,7 +40,7 @@ public class Day04_DropDown extends TestBase {
 //      Assert if 2000 is selected
         WebElement selectedYear = selectYear.getFirstSelectedOption();//getting the selected options
         System.out.println("Selected Year: "+selectedYear.getText());//getting the text of the selected year
-        Assertions.assertTrue(selectedYear.getText().equals("2000"));//asserting if selected test is as expected
+        Assertions.assertTrue(selectedYear.getText().equals("2000"));//asserting if selected year is as expected
 
 //      get all the months and assert if April is an option in the month dropdown
         List<WebElement> allMonths = selectMonths.getOptions();
