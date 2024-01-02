@@ -38,6 +38,20 @@ public abstract class TestBase {
      */
     protected static WebDriver driver;
 
+    @BeforeEach
+    public void setUp(){
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+    }
+    @AfterEach
+    public void tearDown() throws InterruptedException {
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
+        Thread.sleep(2000);
+        driver.quit();
+    }
+
     /* Create 3 Extent Report objects:
     ExtentReports(creates report),
     ExtentHTMLReporter (generates html template),
@@ -85,19 +99,7 @@ public abstract class TestBase {
         extentReports.flush();
     }
 
-    @BeforeEach
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().window().maximize();
-    }
-    @AfterEach
-    public void tearDown() throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
-        Thread.sleep(2000);
-        driver.quit();
-    }
+
     //    Create a method that select an option from a dropdown index
     public static void dropdownSelectByIndex(WebElement dropdownElement,int index){
         Select select = new Select(dropdownElement);

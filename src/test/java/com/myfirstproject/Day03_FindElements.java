@@ -37,15 +37,16 @@ public class Day03_FindElements {
         List<WebElement> linkItems = driver.findElements(By.tagName("a"));
         System.out.println("linkItems = " + linkItems.size());
 
-//        for (WebElement w: linkItems){
-//            System.out.println(w.getText());
-//        }
+        for (WebElement w: linkItems){
+            System.out.println(w.getText());
+        }
 
-        // LAMBDA EXPRESSION
+//         LAMBDA EXPRESSION
         linkItems.forEach(t -> {if (!t.getText().isEmpty()) {
             System.out.println(t.getText());
         }});
         System.out.println("******************************");
+
         List<WebElement> programList = driver.findElements(By.linkText("Upcoming Programs"));
         for (WebElement w: programList){
             System.out.println(w.getText());

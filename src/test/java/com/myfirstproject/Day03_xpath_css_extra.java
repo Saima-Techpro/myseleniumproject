@@ -24,10 +24,10 @@ public class Day03_xpath_css_extra {
         //log in the application
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         //locate username
-        WebElement username = driver.findElement(By.xpath("//input[@name='username']"));
+        WebElement username = driver.findElement(By.cssSelector("input[name='username']"));
         username.sendKeys("Admin");
         //locate password
-        WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
+        WebElement password = driver.findElement(By.cssSelector("input[type='password']"));
         password.sendKeys("admin123");
         //submit button xpath : //button[@type='submit']  ----- css : button[type='submit']
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
@@ -35,8 +35,8 @@ public class Day03_xpath_css_extra {
         //Assert login is successful
         Assertions.assertTrue(driver.getCurrentUrl().contains("dashboard"));
 
-        driver.findElement(By.xpath("(//a)[3]")).click();
-        //driver.findElement(By.xpath("(//span[text()='PIM']")).click();
+//        driver.findElement(By.xpath("(//a)[3]")).click();
+        driver.findElement(By.linkText("PIM")).click();
     }
 //    @AfterEach
 //    public void tearDown(){
