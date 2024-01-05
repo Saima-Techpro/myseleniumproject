@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Day04_DropDown extends TestBase {
     /*
     -How to select from a dropdown???
@@ -19,7 +21,7 @@ public class Day04_DropDown extends TestBase {
     getFirstSelectedOption method
     */
     @Test
-    public void dropdownTest(){
+    public void dropdownTest() {
         driver.get("https://testcenter.techproeducation.com/index.php?page=dropdown");
 //          Selected birthday => 2000 February 15
 //        1. locate the dropdown element
@@ -39,25 +41,24 @@ public class Day04_DropDown extends TestBase {
 
 //      Assert if 2000 is selected
         WebElement selectedYear = selectYear.getFirstSelectedOption();//getting the selected options
-        System.out.println("Selected Year: "+selectedYear.getText());//getting the text of the selected year
+        System.out.println("Selected Year: " + selectedYear.getText());//getting the text of the selected year
         Assertions.assertTrue(selectedYear.getText().equals("2000"));//asserting if selected year is as expected
 
 //      get all the months and assert if April is an option in the month dropdown
         List<WebElement> allMonths = selectMonths.getOptions();
-        boolean isMonthExist=false;  // declare it false for assertion purpose
-        for (WebElement eachMonth : allMonths){
+        boolean isMonthExist = false;  // declare it false for assertion purpose
+        for (WebElement eachMonth : allMonths) {
             System.out.println(eachMonth.getText());
-            if (eachMonth.getText().equals("April")){
-                isMonthExist=true;
+            if (eachMonth.getText().equals("April")) {
+                isMonthExist = true;
             }
         }
         Assertions.assertTrue(isMonthExist);
     }
+}
 
     // HOMEWORK: State Test
-    @Test
-    public void stateTest(){
-        /*   https://testcenter.techproeducation.com/index.php?page=dropdown
+    /*   https://testcenter.techproeducation.com/index.php?page=dropdown
             Create a new test method : statesTest in this class
             Then print the total number of states from the dropdown
             Then print all the state names
@@ -65,5 +66,7 @@ public class Day04_DropDown extends TestBase {
             Assert if Texas is selected or not
             Then check is the state names are in  alphabetical order(THIS WILL FAIL B/C STATE LIST IS NOT IN ALPHABETICAL ORDER)
          */
-    }
-}
+
+
+
+
