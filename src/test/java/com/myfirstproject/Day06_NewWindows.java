@@ -7,7 +7,7 @@ import org.openqa.selenium.WindowType;
 
 public class Day06_NewWindows extends TestBase {
     @Test
-    public void newTabTest(){
+    public void newTabTest() throws InterruptedException {
 //        Open the pages in 2 new windows and verify their TITLES
 //        Linkedin
         driver.get("https://www.linkedin.com/");
@@ -20,9 +20,11 @@ public class Day06_NewWindows extends TestBase {
         driver.get("https://www.ebay.com/");
         Assertions.assertTrue(driver.getTitle().contains("eBay"));
         String ebayHandle = driver.getWindowHandle();
+        Thread.sleep(3000);
 //        Switch back to the linkedin page
         driver.switchTo().window(linkedinHandle);
         System.out.println("LINKEDIN URL "+driver.getCurrentUrl());
+        Thread.sleep(3000);
 //        Switch back to ebay page
         driver.switchTo().window(ebayHandle);
         System.out.println("EBAY URL "+driver.getCurrentUrl());
@@ -38,7 +40,7 @@ public class Day06_NewWindows extends TestBase {
 //        Ebay
 //        I would like to open ebay page in a new TAB
         driver.switchTo().newWindow(WindowType.WINDOW);//CREATES A NEW TAB AND SWITCH TO NEW WINDOW
-//        driver is on the new TAB at this point
+//        driver is on the new WINDOW at this point
         driver.get("https://www.ebay.com/");
         Assertions.assertTrue(driver.getTitle().contains("eBay"));
         String ebayHandle = driver.getWindowHandle();

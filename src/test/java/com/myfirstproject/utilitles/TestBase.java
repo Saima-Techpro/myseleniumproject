@@ -100,13 +100,13 @@ public abstract class TestBase {
         extentReports.flush();
     }
 
-
+    //DROPDOWN
     //    Create a method that select an option from a dropdown index
     public static void dropdownSelectByIndex(WebElement dropdownElement,int index){
         Select select = new Select(dropdownElement);
         select.selectByIndex(index);
     }
-    //DROPDOWN
+
     public static void dropdownSelectByIndex(By locator,int index){
         WebElement dropdownElement = driver.findElement(locator);
         Select select = new Select(dropdownElement);

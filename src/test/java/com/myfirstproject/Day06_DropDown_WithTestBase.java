@@ -30,10 +30,11 @@ public class Day06_DropDown_WithTestBase extends TestBase {
 //        months
         WebElement months = driver.findElement(By.id("month"));
         Select selectMonths = new Select(months);
-        selectMonths.selectByIndex(1);//selecting by index(index starts at 0)
+//        selectMonths.selectByIndex(1);//selecting by index(index starts at 0)
 
-        // Selecting the months using REUSABLE METHODS
+        // Selecting the months using REUSABLE METHODS  (Use ANY one of the following)
         dropdownSelectByIndex(driver.findElement(By.id("month")), 1); // Webelement, index
+        dropdownSelectByIndex(months, 1); // Webelement, index
 
         dropdownSelectByIndex(driver.findElement(By.id("month")), 0); // locator, index
         dropdownSelectByIndex(driver.findElement(By.xpath("//select[@id='month']")), 0); // locator, index
@@ -61,16 +62,4 @@ public class Day06_DropDown_WithTestBase extends TestBase {
         Assertions.assertTrue(isMonthExist);
     }
 
-    // HOMEWORK: State Test
-    @Test
-    public void stateTest(){
-        /*   https://testcenter.techproeducation.com/index.php?page=dropdown
-            Create a new test method : statesTest in this class
-            Then print the total number of states from the dropdown
-            Then print all the state names
-            Select 'Texas' opting using one of the method
-            Assert if Texas is selected or not
-            Then check is the state names are in  alphabetical order(THIS WILL FAIL B/C STATE LIST IS NOT IN ALPHABETICAL ORDER)
-         */
-    }
 }
