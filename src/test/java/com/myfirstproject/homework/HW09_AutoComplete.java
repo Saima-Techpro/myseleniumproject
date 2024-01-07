@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 public class HW09_AutoComplete extends TestBase {
+    //    When user goes to https://jqueryui.com/autocomplete/
+    //    And type Apple
+    //    Then select Applescript
+    //    And check if Applescript is selected(you can get value by js to get text of the input)
     @Test
     public void autoCompleteTest(){
         //    When user goes to https://jqueryui.com/autocomplete/

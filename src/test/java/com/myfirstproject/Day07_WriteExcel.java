@@ -21,9 +21,10 @@ public class Day07_WriteExcel {
 //        Go to first row
         Row row1 = sheet1.getRow(0);//index stars at 0
 //        Create a cell on the 3rd column (2nd index) on the first row
-        Cell r1c3 = row1.createCell(2);
+        Cell r1c3 = row1.createCell(2);  //(2nd index) this will create 3rd column
 //        Write “POPULATION” on that cell
         r1c3.setCellValue("POPULATION");
+//        To write something out to excel sheet, we need to save it through FileOutputStream first. So type line 35 first
 //        Create a cell on the 2nd row 3rd cell(index2), and write 150000
         sheet1.getRow(1).createCell(2).setCellValue("150000");
 //        Create a cell on the 3rd row 3rd cell(index2), and write 250000

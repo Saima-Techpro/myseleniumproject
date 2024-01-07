@@ -14,12 +14,12 @@ import java.util.List;
 public class HW10_AmazonProductSearch extends TestBase {
 
     @Test
-    public void amazonSearchTest(){
-//    TC01_As user I want to know how many item
-//    are there on amazon in the first page after I search "porcelain teapot"?
-//    TC02_Order the the tea pot prices, find the min, max,
-//    and average price to the nearest cent.
+    public void amazonSearchTest() throws InterruptedException {
+//    As user I want to know how many items are there on amazon in the first page after I search "porcelain teapot"?
+//    Order the  tea pot prices, find the min, max, and average price to the nearest cent.
+
         driver.get("https://www.amazon.com/");//get takes us to a website
+        Thread.sleep(2000);
         driver.navigate().refresh();
 
         //1. Locating the amazon searchbox
@@ -31,20 +31,20 @@ public class HW10_AmazonProductSearch extends TestBase {
         int numOfItem = wholePartPrice.size();//The number of item in List<WebElement>
         System.out.println("There are " + numOfItem + " items on the first page");
 
-        //3. Finding the decimal parts of teh prices
+        //3. Finding the decimal parts of the prices
         List<WebElement> decimalPartPrice = driver.findElements(By.xpath("//span[@class='a-price-fraction']"));
 
-        //4. Print the whole parts of teh prices
+        //4. Print the whole parts of the prices
         for (int i = 0; i < numOfItem; i++) {
             System.out.print(wholePartPrice.get(i).getText() + " , ");
         }
 
-        System.out.println();//Taking me to teh next line
+        System.out.println();//Taking me to the next line
         for (int i = 0; i < numOfItem; i++) {
             System.out.print(decimalPartPrice.get(i).getText() + " , ");
         }
 
-        //To sort teh prices, I can use collection. First I convert the List of WebElements to List String
+        //To sort the prices, I can use collection. First I convert the List of WebElements to List String
         List<String> priceList = new ArrayList<>();
         for (int i = 0; i < numOfItem; i++) {
             priceList.add(wholePartPrice.get(i).getText());

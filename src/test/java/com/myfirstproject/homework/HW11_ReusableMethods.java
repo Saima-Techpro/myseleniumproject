@@ -16,7 +16,7 @@
 ////    GOAL: Use Reusable Methods only.
 //    @Test
 //    public void signUpTest() throws IOException {
-//        extentTest.pass("Test Case Begins :" +HW11_ReusableMethods.class);
+//        extentTest.pass("Test Case Begins :" + HW11_ReusableMethods.class);
 //
 ////        driver.get("https://www.automationexercise.com/");
 //        openURL("https://www.automationexercise.com/");//using a new reusable method in test base

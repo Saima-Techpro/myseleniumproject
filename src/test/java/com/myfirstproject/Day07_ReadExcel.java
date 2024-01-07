@@ -24,29 +24,29 @@ public class Day07_ReadExcel {
 
 //        Open the first worksheet
             Sheet sheet1 = workbook.getSheetAt(0);//get first sheet by index. index starts at 0
-//            workbook.getSheet("Sheet1");//get first sheet by name
+//            workbook.getSheet("Sheet1"); // OR  get first sheet by name
 //        Go to first row
             Row row1 = sheet1.getRow(0);//index stars at 0
 //        Go to first cell on that first row and print
             Cell r1c1 = row1.getCell(0);//index starts at 0
-            System.out.println(r1c1);
+            System.out.println("First Row, first cell: "+r1c1);
 //        Go to second cell on that first row and print
 //            Cell r1c2 = row1.getCell(1);
             String r1c2 = row1.getCell(1).toString();
-            System.out.println(r1c2);
-            Assertions.assertTrue(r1c2.equals("CAPITAL"));
+            System.out.println("First Row, second cell: "+r1c2);
+            Assertions.assertEquals("CAPITAL", r1c2);
 //        Go to 2nd row first cell  and assert if the data equal to USA
             String r2c1 = sheet1.getRow(1).getCell(0).toString();
-            System.out.println(r2c1);
+            System.out.println("Second Row, first cell: "+r2c1);
 //        Go to 3rd row 2nd cell-chain the row and cell
             String r3c2 = sheet1.getRow(2).getCell(1).toString();
-            System.out.println(r3c2);
+            System.out.println("Third Row, second cell: "+r3c2);
 //        Find the number of row
             int totalRowNum = sheet1.getLastRowNum()+1;//coz index starts at 0
-            System.out.println(totalRowNum);
+            System.out.println("totalRowNum = " + totalRowNum);
 //        Find the number of used row
             int totalUsedRowNum = sheet1.getPhysicalNumberOfRows();//index starts at 1
-            System.out.println(totalUsedRowNum);
+            System.out.println("totalUsedRowNum = " + totalUsedRowNum);
 
 
         } catch (FileNotFoundException e) {

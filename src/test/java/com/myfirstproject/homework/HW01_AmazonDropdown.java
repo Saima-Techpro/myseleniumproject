@@ -13,7 +13,7 @@ import java.util.List;
 
 public class HW01_AmazonDropdown extends TestBase {
 
-    //    Create A Class:
+//    Create A Class: AmazonDropdown
 //    Create A Method dropdownTest
 //    Go to https://www.amazon.com/
 //    Find the element of the dropdown element. HINT: By.id(“searchDropdownBox")
@@ -73,9 +73,7 @@ public class HW01_AmazonDropdown extends TestBase {
         }
         Collections.sort(sortedList);
 
-        String result = originalList.equals(sortedList)
-                ? "The dropdown is in Alphabetical Order"
-                : "The dropdown is NOT in Alphabetical Order";
+        String result = originalList.equals(sortedList) ? "The dropdown is in Alphabetical Order" : "The dropdown is NOT in Alphabetical Order";
 
         System.out.println("Result : "+result);
         System.out.println("Original List : "+originalList);

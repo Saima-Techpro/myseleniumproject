@@ -11,6 +11,8 @@ public class Day07_Cookies extends TestBase {
     public void cookiesTest() throws InterruptedException {
 //        Go to amazon
         driver.get("https://www.amazon.com");
+        Thread.sleep(1000);
+        driver.navigate().refresh(); // to get rid of captcha
 
 //        1. Find the total number of cookies
         Set<Cookie> cookieList = driver.manage().getCookies(); // import the right cookie .. from Selenium -> org.openqa.selenium.Cookie;
@@ -31,7 +33,7 @@ public class Day07_Cookies extends TestBase {
 //        4. Add new cookie
         Cookie myFavCookie = new Cookie("my-cookies","login-cookie");
         driver.manage().addCookie(myFavCookie);
-        Thread.sleep(3000);
+        Thread.sleep(3000);   // need to give time to browser to add your cookie
         for (Cookie each : driver.manage().getCookies()){
             System.out.println(each);//printing all cookies to see if the new cookie is added
         }
