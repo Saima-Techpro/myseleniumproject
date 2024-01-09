@@ -57,6 +57,7 @@ public class Day07_WebTables extends TestBase {
 //        Task 2 : Print All Rows
         System.out.println("***Task 2 : Print All Rows***");
         List<WebElement> allRows = driver.findElements(By.xpath("//table[@id='table1']//tr"));
+
         int rowNum = 1;
         for (WebElement eachRow : allRows){
             System.out.println("Row "+rowNum+" => "+eachRow.getText());
@@ -67,7 +68,11 @@ public class Day07_WebTables extends TestBase {
 //        Task 3 : Print Last row data only
 
         System.out.println("***Task 3 : Print Last row data only***");
-        System.out.println("Last row data: "+allRows.get(allRows.size()-1).getText());
+        System.out.println("Last row data: "+allRows.get(allRows.size()-1).getText()); // use the existing list allRows
+//        OR locate it again
+//        WebElement lastRow = driver.findElement(By.xpath("(//table[@id='table1']//tr[last()]"));
+//        WebElement lastRow = driver.findElement(By.xpath("(//tbody)[1]//tr[last()]"));
+//        System.out.println("lastRow = " + lastRow);
 
 //        Print 2nd row data only
         System.out.println("2nd row data: "+allRows.get(1).getText());
@@ -85,14 +90,21 @@ public class Day07_WebTables extends TestBase {
 
         System.out.println("=======================================");
 
-//        Task 5 : Write a method that accepts 2 parameters
+//        Task 5 :  Print the information of columns 1 and 2 in 3 rows
+        List<WebElement> thirdRowCol1and2 = driver.findElements(By.xpath("(//tbody)[1]//tr[3]//td[position()>=1 and position()<=2]"));
+
+        thirdRowCol1and2.forEach(t -> System.out.println("thirdRow Column 1 and 2: "+t.getText()));
+
+        System.out.println("=======================================");
+
+//        Task 6 : Write a method that accepts 2 parameters
         //Call printData method to test
         printData(2,3);//fbach@yahoo.com
 
     }
 
 
-    //    HOMEWORK : Task 5 : Write a method that accepts 2 parameters
+    //    HOMEWORK : Task 6 : Write a method that accepts 2 parameters
 //    Parameter 1 = row number
 //    Parameter 2 = column number
 //    printData(2,3);  => prints data in 2nd row 3rd column

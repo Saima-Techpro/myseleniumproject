@@ -8,11 +8,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class Day08_Actions extends TestBase {
+public class Day08_Actions1 extends TestBase {
     @Test
     public void actions1Test() throws InterruptedException {
         driver.get("https://www.amazon.com/");
         Thread.sleep(1000);
+        driver.navigate().refresh();
 //        locating the element that I want to hover over
         WebElement accountListTab = driver.findElement(By.id("nav-link-accountList"));
 
@@ -20,20 +21,21 @@ public class Day08_Actions extends TestBase {
 //        1. create Actions object
         Actions actions = new Actions(driver);
 //        2. use moveToElement function to hover over to the element. make sure use perform() at the end
-        actions.moveToElement(accountListTab).perform();
+        actions.moveToElement(accountListTab).perform();  // moveToElement() is used to hover and scroll as well
         Thread.sleep(1000);
 //    When user click on “Account” link
         WebElement accountLink = driver.findElement(By.linkText("Account"));
-//        accountLink.click();//no need actions. this is more common.
-//        but ALTERNATIVELY i can use actions to click
+//        accountLink.click(); //no need actions. this is more common.
+//        but ALTERNATIVELY I can use actions to click
         actions.click(accountLink).perform();
         Thread.sleep(1000);
 //    Then verify the page title contains “Your Account”
         Assertions.assertTrue(driver.getTitle().contains("Your Account"));
+        Thread.sleep(1000);
 //    Then scroll to Amazon Music element at the bottom of the page
         WebElement amazonMusic = driver.findElement(By.xpath("//a[text()='Amazon Music']"));
        // WebElement amazonMusic = driver.findElement(By.partialLinkText("Amazon Music"));
-        actions.moveToElement(amazonMusic).perform();
+        actions.moveToElement(amazonMusic).perform();  // moveToElement() is used to hover and scroll as well
         Thread.sleep(1000);
 //    And click on it
 //        amazonMusic.click(); //OR ALTERNATIVELY
@@ -41,6 +43,7 @@ public class Day08_Actions extends TestBase {
         Thread.sleep(3000);
 //    Then verify Amazon Music page is displayed
         Assertions.assertTrue(driver.getCurrentUrl().contains("music"));
+
 //    Scroll the page up and down
         actions.sendKeys(Keys.PAGE_DOWN).perform();//scrolling down
         Thread.sleep(3000);
@@ -71,6 +74,7 @@ Actions is used to perform mouse and keyboard action
 We need to create an Actions object to perform action
 Then use the appropriate function to perform mouse or keyboard events
 Make sure to use perform() at the end
+
 actions.moveToElement(amazonMusic).perform();-> hover over the element
 actions.sendKeys(Keys.PAGE_DOWN).perform(); //scrolling down
 actions.sendKeys(Keys.PAGE_UP).perform();//scrolling up

@@ -13,10 +13,13 @@ public class Day08_JSExecutor extends TestBase {
     public void jsExecutorTest1() throws InterruptedException {
 //        Given user is on the https://www.amazon.com/
         driver.get("https://www.amazon.com/");
+        Thread.sleep(2000);
+        driver.navigate().refresh();
 //        When use click on “Account” link
         WebElement accountListTab = driver.findElement(By.id("nav-link-accountList"));
         Actions actions = new Actions(driver);
-        actions.moveToElement(accountListTab).perform();
+//        actions.moveToElement(accountListTab).perform();
+        actionsHoverOnElement(accountListTab);  // hover over using REUSABLE METHOD
 
        //  actionsHoverOnElement(accountListTab); // using Reusable Method from TestBase
         Thread.sleep(1000);
@@ -28,7 +31,7 @@ public class Day08_JSExecutor extends TestBase {
 //        If these 2 clicks do not work, we can js click that is stronger
 //        1.  create javascript reference
         JavascriptExecutor js = (JavascriptExecutor) driver;
-//        2. use executeScript to execute js code
+//        2. use executeScript() method to execute js code
         js.executeScript("arguments[0].click();",accountLink);//clicking accountLink using js executor
         Thread.sleep(1000);
 //        Then verify the page title contains “Your Account”
@@ -47,20 +50,24 @@ public class Day08_JSExecutor extends TestBase {
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");//Scroll all the way down
         Thread.sleep(3000);
        // js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");//Scroll all the way up
+
+//        SHARE THE REUSABLE METHODS FIRST
+
         scrollAllDownJS();//with reusable method
         waitFor(2);
 //        LOCATE THE SEARCH BOX USING JS EXECUTOR
         WebElement searchBox = locateElementByJS("navbarSearchInput");
 //        TYPE POP MUSIC
-//        First choice is sendKeys() method... but we also type in thr input box using JSExecutor method
+//        First choice is sendKeys() method... RECOMMENDED .... but we can also type in the input box using JSExecutor method
         setValueByJS(searchBox,"POP MUSIC");
 //        GET AND PRINT THE VALUE OF THAT INPUT
         waitFor(2);
         String inputValue = getValueByJS("navbarSearchInput");
         System.out.println(inputValue);
+        Assertions.assertTrue(inputValue.contains("POP MUSIC"));
 /*
 Javascript executor is a selenium class that is used to run javascript codes
-We should prefer normal selenium methods, but sometimes they may not work(element.click() may not click)
+We should PREFER normal selenium methods, but sometimes they may not work(element.click() may not click)
 Then we can try javascript executor methods
 Popular js executor methods ->  click(), scroll into view,
 Less popular js executor methods -> get elements values, locating the elements javascript wait

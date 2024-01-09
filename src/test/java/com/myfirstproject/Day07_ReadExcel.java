@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Day07_ReadExcel {
     @Test
@@ -47,6 +49,37 @@ public class Day07_ReadExcel {
 //        Find the number of used row
             int totalUsedRowNum = sheet1.getPhysicalNumberOfRows();//index starts at 1
             System.out.println("totalUsedRowNum = " + totalUsedRowNum);
+
+            System.out.println("=========country-capital format=========");
+//        Print data in country-capital format
+            for (int i = 0; i < workbook.getSheet("Sheet1").getPhysicalNumberOfRows(); i++) {
+                for (int j = 0; j < workbook.getSheet("Sheet1").getRow(0).getLastCellNum(); j++) {
+                    System.out.print(workbook.getSheet("Sheet1").getRow(i).getCell(j)+"\t");  // +"\t" => to create gap between the columns
+                }
+                System.out.println();
+            }
+
+            System.out.println("===========HOMEWORK===========");
+//            HOMEWORK : Print country, capital key value pairs as map object()
+
+            Map<String , String > countryCapitalMap = new HashMap<>();  // Create an empty map
+
+           int rowCount = sheet1.getPhysicalNumberOfRows();
+
+            for (int i = 1; i <rowCount ; i++) {
+                Row row = sheet1.getRow(i);
+
+            String countries = row.getCell(0).toString();  //OR
+//            String countries = row.getCell(0).getStringCellValue().trim();
+//            System.out.println("countries = " + countries);
+            String capitals = row.getCell(1).toString();   //OR
+//            String capitals = row.getCell(1).getStringCellValue().trim();
+//            System.out.println("capitals = " + capitals);
+
+                countryCapitalMap.put(countries,capitals);
+            }
+            System.out.println("===========Country- Capital Map===========");
+            System.out.println(countryCapitalMap);
 
 
         } catch (FileNotFoundException e) {
