@@ -16,10 +16,12 @@ public class Q06_AmazonDropDown extends TestBase {
        Search for each first five options and print titles
    */
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
 
 //        Go to https://amazon.com
         driver.get("https://amazon.com");
+        Thread.sleep(2000);
+        driver.navigate().refresh();
 
 //        Print all the options in the 'Departments' dropdown on the left side of the search box
         WebElement searchDropDown = driver.findElement(By.id("searchDropdownBox"));

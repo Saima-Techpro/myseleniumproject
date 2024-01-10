@@ -70,7 +70,7 @@ Javascript executor is a selenium class that is used to run javascript codes
 We should PREFER normal selenium methods, but sometimes they may not work(element.click() may not click)
 Then we can try javascript executor methods
 Popular js executor methods ->  click(), scroll into view,
-Less popular js executor methods -> get elements values, locating the elements javascript wait
+Less popular js executor methods -> get elements values, locating the elements, javascript wait
  */
     }
 }

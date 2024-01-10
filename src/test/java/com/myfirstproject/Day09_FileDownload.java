@@ -17,11 +17,11 @@ public class Day09_FileDownload extends TestBase {
 //        https://the-internet.herokuapp.com/download
         driver.get("https://the-internet.herokuapp.com/download");
 //        Download Rectangle.png  file
-        driver.findElement(By.linkText("flower.jpeg")).click();
+        driver.findElement(By.linkText("evening.png")).click();
 //        download completion takes some time, so use hard wait
-        waitFor(3);
+        waitFor(5);
 //        Then verify if the file downloaded successfully
-        String pathOfDownloadedFile = System.getProperty("user.home")+"/Downloads/flower.jpeg";
+        String pathOfDownloadedFile = System.getProperty("user.home")+"/Downloads/evening.png";
         Assertions.assertTrue(Files.exists(Paths.get(pathOfDownloadedFile)));
 
 //        if pass, no message will be displayed. if fails message will be displayed

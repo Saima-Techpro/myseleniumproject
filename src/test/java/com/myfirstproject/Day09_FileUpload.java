@@ -18,6 +18,7 @@ public class Day09_FileUpload extends TestBase {
         file upload system is created using file type=input element, so we can use sendKeys(PATH) to upload the file
          */
         WebElement chooseAFile = driver.findElement(By.id("fileinput"));
+//        Selenium can't handle desktop files directly. so we create its path and give that path in sendKeys()
         String pathOfFile = System.getProperty("user.home") + "/Desktop/flower.jpeg";
         chooseAFile.sendKeys(pathOfFile);
         waitFor(3);

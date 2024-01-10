@@ -1,14 +1,12 @@
 package com.myfirstproject;
 
-import com.myfirstproject.utilitles.TestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Day09_FileExists extends TestBase {
+public class Day09_FileExists  {
 
     @Test
     public void fileExistTest() {
