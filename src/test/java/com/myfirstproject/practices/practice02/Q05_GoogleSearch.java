@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Q05_GoogleSearch {
     /*
+    NOTE: Don't extend to TestBase
      Create driver and go to http://www.google.com in the BeforeEach method
      With 3 different test methods:
       -Type "Desktop" in the search box and search it
@@ -54,7 +55,9 @@ public class Q05_GoogleSearch {
     @AfterEach
     public void afterMethod() throws InterruptedException {
         String searchResult = driver.findElement(By.id("result-stats")).getText();
-        System.out.println("searchResult = " + searchResult.split(" ")[1]);
+        System.out.println("searchResult = " + searchResult);
+        String numOfResults =  searchResult.split(" ")[1];  // split() returns Array, so we can use index to reach out the the element that we need
+        System.out.println("numOfResults = " + numOfResults);
         Thread.sleep(3000);
         driver.quit();
     }

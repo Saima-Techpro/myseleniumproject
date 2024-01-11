@@ -19,6 +19,7 @@ public class Q03_ClickWithJavaScriptExecutor extends TestBase {
 
 //        Click on 'Back to top' at the bottom
         WebElement backToTopButton = driver.findElement(By.linkText("Back to top"));
+        backToTopButton.click();
 
         try {
             backToTopButton.click();

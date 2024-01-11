@@ -46,12 +46,12 @@ public abstract class TestBase {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().window().maximize();
     }
-    @AfterEach
-    public void tearDown() throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
-        Thread.sleep(2000);
-        driver.quit();
-    }
+//    @AfterEach
+//    public void tearDown() throws InterruptedException {
+//        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
+//        Thread.sleep(2000);
+//        driver.quit();
+//    }
 
     /* Create 3 Extent Report objects:
     ExtentReports(creates report),
@@ -363,9 +363,10 @@ public abstract class TestBase {
 
     //    ROBOT UPLOAD FILE
     public static void uploadFile(String pathOfFile) {
+        // Following try/catch -- all JAVA classes+logic
         try {
             waitFor(1);
-//            copy the path of the file that is given
+//            copy the path of the file that is given on the clipboard (desktop window pop-up
             StringSelection stringSelection = new StringSelection(pathOfFile);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 //            creating robot object

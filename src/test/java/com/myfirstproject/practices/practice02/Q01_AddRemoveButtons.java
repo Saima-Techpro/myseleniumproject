@@ -41,7 +41,8 @@ public class Q01_AddRemoveButtons extends TestBase {
         }
 
 //        Assert that 20 buttons were deleted.
-        List<WebElement> deleteButtonsAfterDelete = driver.findElements(By.xpath("//button[.='Delete']"));//[Delete, Delete, ... ]
+//        List<WebElement> deleteButtonsAfterDelete = driver.findElements(By.xpath("//button[.='Delete']"));//[Delete, Delete, ... ]
+        List<WebElement> deleteButtonsAfterDelete = driver.findElements(By.className("added-manually"));//[Delete, Delete, ... ]
         System.out.println("NumOfDeleteButtonsAfterDelete = " + deleteButtonsAfterDelete.size());//80
         assertEquals(deleteButtonsBeforeDelete.size() - 20, deleteButtonsAfterDelete.size());
     }
