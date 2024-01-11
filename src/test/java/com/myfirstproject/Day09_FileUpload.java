@@ -30,7 +30,7 @@ public class Day09_FileUpload extends TestBase {
                 driver.findElement(By.id("uploadedfilename")).getText(),
                 "File upload is not successful : Actual file name is not flower.jpeg"
         );
-        //       Alternatively
+        //       Alternatively, if you want to keep it general (coz we don't know the nam eof the file user is going to upload)
         Assertions.assertEquals(
                 "You uploaded a file. This is the result.",
                 driver.findElement(By.xpath("//div[@class='explanation']//p")).getText(),

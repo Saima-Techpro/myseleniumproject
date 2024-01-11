@@ -20,11 +20,14 @@ public class Day09_RobotClass extends TestBase {
         String pathOfImage = System.getProperty("user.home") + "/Desktop/flower.jpeg";//mac
 //        String pathOfImage = System.getProperty("user.home") + "\\Desktop\\flower.jpeg";//windows
         System.out.println(pathOfImage);
+
+
 //        ROBOT CLASS
         StringSelection ss= new StringSelection(pathOfImage);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
         // we need the above 2 codes to create Robot object
         Robot robot = new Robot();
+
 //        pressing control V
         robot.keyPress(KeyEvent.VK_CONTROL);
         waitFor(3);
@@ -35,13 +38,14 @@ public class Day09_RobotClass extends TestBase {
         waitFor(3);
         robot.keyRelease(KeyEvent.VK_V);
         waitFor(3);
+
 //        click enter
         robot.keyPress(KeyEvent.VK_ENTER);
         waitFor(3);
 //        release enter
-
         robot.keyRelease(KeyEvent.VK_ENTER);
         waitFor(3);
+
 //       file upload is done. then click upload button and do assertion
         driver.findElement(By.xpath("//input[@type='submit']")).click();
         waitFor(3);
@@ -56,8 +60,11 @@ public class Day09_RobotClass extends TestBase {
                 "You uploaded a file. This is the result.",
                 driver.findElement(By.xpath("//div[@class='explanation']//p")).getText(),
                 "Upload is failed!!!"
+
         );
     }
+
+    // REUSABLE METHOD
     public static void uploadFilePath(String filePath){
         try{
             waitFor(3);
