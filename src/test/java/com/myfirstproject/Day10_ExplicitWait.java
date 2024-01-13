@@ -28,7 +28,7 @@ public class Day10_ExplicitWait extends TestBase {
          */
 //      USING EXPLICIT WAIT
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));//create the object
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
+//        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
         //1. wait for the element explicitly
         //2. return that element
 //        waiting for the WEBELEMENT  -> WORKS!!!!
@@ -38,7 +38,7 @@ public class Day10_ExplicitWait extends TestBase {
         Assertions.assertEquals("Hello World!",helloWorld.getText());
     }
     @Test
-    public void reusableExplicitWaitTest(){
+    public void explicitWaitTestWithReusableMethod(){
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
         driver.findElement(By.xpath("//div[@id='start']//button")).click();
         //        Then verify the ‘Hello World!’ Shows up on the screen

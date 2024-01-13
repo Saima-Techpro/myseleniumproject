@@ -11,6 +11,8 @@ public class Day11_NoSuchElementException extends TestBase {
     @Test
     public void noSuchElementTest(){
         driver.get("https://www.amazon.com");
+        waitFor(2);
+        driver.navigate().refresh();
 //        WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")); // correct locator
 //        searchBox.sendKeys("tea pot"+ Keys.ENTER);
 
@@ -21,9 +23,9 @@ public class Day11_NoSuchElementException extends TestBase {
     public void noSuchElementTest2(){
         driver.get("https://jqueryui.com/droppable/");
 //        switchIframeByIndex(0);
-        WebElement source = driver.findElement(By.id("draggable"));//NoSuchElementException.inside iframe.
+        WebElement source = driver.findElement(By.id("draggable"));// inside iframe.
         WebElement target = driver.findElement(By.id("droppable"));//inside iframe
         Actions actions = new Actions(driver);
-        actions.clickAndHold(source).moveToElement(target).release().build().perform();
+        actions.clickAndHold(source).moveToElement(target).release().build().perform();  //NoSuchElementException.
     }
 }

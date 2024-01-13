@@ -10,15 +10,19 @@ public class Day11_TimeoutException extends TestBase {
     @Test
     public void timeOutTest(){
         driver.get("https://www.amazon.com");
+        waitFor(2);
+        driver.navigate().refresh();
 //        WebElement searchBox = driver.findElement(By.xpath("//input[@id=' twotabsearchtextbox']"));//NoSuchElementException due to the space. wrong locator
 //        searchBox.sendKeys("tea pot"+ Keys.ENTER);
 
         // Maybe this failure is due to a wait problem
         WebElement searchBox = waitForVisibility(By.xpath("//input[@id=' twotabsearchtextbox']"),15);
          searchBox.sendKeys("tea pot"+ Keys.ENTER); //TimeoutException due to the explicit wait + element not found
-        /*
+       /*
         NOTE:
         driver.findElement(By.xpath("//input[@id=' twotabsearchtextbox']")) = waitForVisibility(By.xpath("//input[@id=' twotabsearchtextbox']"),15)
-         */
+
+        */
+
     }
 }

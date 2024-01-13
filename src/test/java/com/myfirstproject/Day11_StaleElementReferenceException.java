@@ -10,6 +10,8 @@ public class Day11_StaleElementReferenceException extends TestBase {
     @Test
     public void staleReferenceTest(){
         driver.get("https://www.amazon.com");
+        waitFor(2);
+        driver.navigate().refresh();
         WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
         searchBox.sendKeys("tea pot"+ Keys.ENTER);
         driver.navigate().to("https://www.google.com");
@@ -20,6 +22,9 @@ public class Day11_StaleElementReferenceException extends TestBase {
     @Test
     public void staleReferenceSolutionTest(){
         driver.get("https://www.amazon.com");
+        waitFor(2);
+        driver.navigate().refresh();
+
         WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
         searchBox.sendKeys("tea pot"+ Keys.ENTER);
         driver.navigate().to("https://www.google.com");
@@ -29,6 +34,6 @@ public class Day11_StaleElementReferenceException extends TestBase {
         searchBox=driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
         searchBox.sendKeys("tea pot"+ Keys.ENTER);
 //        OR ALTERNATIVELY
-//        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("tea pot"+ Keys.ENTER);//StaleElementReferenceException due to the reference is old
+//        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("tea pot"+ Keys.ENTER);  //StaleElementReferenceException due to the reference is old
     }
 }

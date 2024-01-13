@@ -88,6 +88,7 @@ public class Day09_RobotClass extends TestBase {
             waitFor(3);
             System.out.println("ENTER");
         }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
     @Test
