@@ -38,7 +38,7 @@ public class Q06_AmazonDropDown extends TestBase {
         System.out.println("\nSearch for each of the first five options and print titles:");
         for (int i = 0; i < 5; i++) {
             String option = new Select(driver.findElement(By.id("searchDropdownBox"))).getOptions().get(i).getText();
-            driver.findElement(By.id("twotabsearchtextbox")).sendKeys(option, Keys.ENTER);
+            driver.findElement(By.id("twotabsearchtextbox")).sendKeys(option, Keys.ENTER);  // to avoid StaleElement Exception, we refresh the reference of the same element
             System.out.println(driver.getTitle());
             driver.navigate().back();
         }

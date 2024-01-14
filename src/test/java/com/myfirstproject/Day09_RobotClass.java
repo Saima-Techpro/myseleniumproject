@@ -4,6 +4,7 @@ import com.myfirstproject.utilitles.TestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -47,7 +48,8 @@ public class Day09_RobotClass extends TestBase {
         waitFor(3);
 
 //       file upload is done. then click upload button and do assertion
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
+        WebElement uploadButton = driver.findElement(By.xpath("//input[@type='submit']"));
+        uploadButton.click();
         waitFor(3);
 //        Then verify the ‘You uploaded a file. This is the result.’  Message displayed
 //        Assertions.assertEquals(

@@ -15,6 +15,7 @@ public class Day11_CaptureScreenshotOfElements extends TestBase {
         WebElement image = driver.findElement(By.xpath("//img[@alt='Google']"));
         waitFor(1);
         captureScreenshotOfElement(image);
+//        captureScreenshotOfElement(driver.findElement(By.xpath("//img[@alt='Google']")));  // OR DIRECTLY IN THE REUSABLE METHOD
 
 
 //        Then verify the logo is displayed

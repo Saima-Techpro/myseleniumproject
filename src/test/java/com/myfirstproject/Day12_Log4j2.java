@@ -3,7 +3,7 @@ package com.myfirstproject;
 import com.myfirstproject.utilitles.LoggerUtils;
 import org.junit.jupiter.api.Test;
 
-public class Day12_Log4j2 {
+public class Day12_Log4j2 {  // 2 means log4J second version
 
     @Test
     public void log4j2Test(){
