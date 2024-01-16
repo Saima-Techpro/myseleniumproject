@@ -32,7 +32,7 @@ public class HW13_Synchronization3 extends TestBase {
 
     }
     @Test
-    public void test33(){
+    public void test4(){
 //     No need to use explicit wait, implicit wait is enough
 //     But as example  This is test case is done using explicit wait
 //     CREATE WAIT OBJECT

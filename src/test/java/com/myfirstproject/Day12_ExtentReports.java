@@ -11,12 +11,14 @@ import java.io.IOException;
 public class Day12_ExtentReports extends TestBase {
     @Test
     public void extentReportTest(){
+//        Examples how to use different extentTest methods
         extentTest.info("Login should be active after registration");
         extentTest.warning("Pay attention to Login Button");
         extentTest.fail("Login button is not interactive");
-        extentTest.skip("Regustration is skipped for this test");
+        extentTest.skip("Registration is skipped for this test");
         extentTest.pass("Login is successful!");
-//        extentTest.pass() etc. works just like System.out.println();
+//       NOTE: extentTest.pass() or other methods just log the messages; works just like System.out.println();
+//       THEY DO NOT WORK AS HARD ASSERTION
 
 
 
@@ -29,6 +31,7 @@ public class Day12_ExtentReports extends TestBase {
         }
 
 
+
     }
     @Test
     public void extentReportsTest2() throws IOException {
@@ -38,14 +41,14 @@ public class Day12_ExtentReports extends TestBase {
         extentTest
                 .pass("Navigating to the application home page") //marking test step as pass
                 .assignAuthor("John","Sam","Nancy") // optional : adding authors
-                .assignCategory("Smoke","Regression","Integration") // optional : adding test categories
                 .assignDevice("Mac","Windows") // optional : adding devices
+                .assignCategory("Smoke","Regression","Integration") // optional : adding test categories
                 .addScreenCaptureFromPath(captureScreenshotEntirePageAsString()); // optional : adding screenshot at this point
 //        Given user is on https://testcenter.techproeducation.com/index.php?page=autocomplete
         driver.get("https://testcenter.techproeducation.com/index.php?page=autocomplete");
         extentTest
-                .pass("User is on the home page")
-                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString(),"Home Page" );
+                .pass("User is on the home page")  //marking test step as pass
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString(),"Home Page" ); // adding screenshot at this point
 
 
 //        When user type “uni” in the search box
@@ -53,13 +56,13 @@ public class Day12_ExtentReports extends TestBase {
         waitFor(1);
         extentTest
                 .pass("Typed 'uni' in the search box")
-                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());  // adding screenshot at this point
 //        And select the ‘United Kingdom’ from the suggestions
         driver.findElement(By.xpath("//div[@id='myCountryautocomplete-list']//div[.='United Kingdom']")).click();
         waitFor(1);
         extentTest
                 .pass("Selected 'United Kingdom' Option")
-                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString()); // adding screenshot at this point
 
 
 //        And click on submit button
@@ -69,7 +72,7 @@ public class Day12_ExtentReports extends TestBase {
         Assertions.assertTrue(driver.findElement(By.id("result")).getText().contains("United Kingdom"));
         extentTest
                 .pass("Result contains United Kingdom")
-                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString()); // adding screenshot at this point
 
         LoggerUtils.info("Test is complete successfully....");
     }

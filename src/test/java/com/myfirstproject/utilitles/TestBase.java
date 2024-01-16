@@ -46,17 +46,18 @@ public abstract class TestBase {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().window().maximize();
     }
-//    @AfterEach
-//    public void tearDown() throws InterruptedException {
-//        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
-//        Thread.sleep(2000);
-//        driver.quit();
-//    }
+    @AfterEach
+    public void tearDown() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // if needed
+        Thread.sleep(2000);
+        driver.quit();
+    }
 
-    /* Create 3 Extent Report objects:
-    ExtentReports(creates report),
-    ExtentHTMLReporter (generates html template),
-    ExtentTest (logs Test steps. Only this will be used in Test classes)
+    /*
+    Create 3 Extent Report objects:
+    1. ExtentReports(creates report),
+    2. ExtentHTMLReporter (generates html template),
+    3. ExtentTest (logs Test steps. Only this will be used in Test classes)
 
      */
 
@@ -66,7 +67,7 @@ public abstract class TestBase {
 
     /*
     Create BeforeAll (runs before each class) for extent report pre-requisites
-    create AfterAll for generating reports using 'flush'
+    create AfterAll for generating reports using 'flush'... like perform() in Actions class
      */
     @BeforeAll
     public static void setExtentReports(){
@@ -76,7 +77,7 @@ public abstract class TestBase {
         extentReports = new ExtentReports();
         extentHtmlReporter = new ExtentHtmlReporter(reportPath);
 
-//       *** Optional: Add CUSTOM Information according to your project/test for Extent Reports ***
+//       *** Optional: Add CUSTOM Information according to your project/test needs for Extent Reports ***
         extentReports.setSystemInfo("Project Name: ", "My Selenium Project");
         extentReports.setSystemInfo("Browser: ", "Chrome");
         extentReports.setSystemInfo("Team Name: ", "Batch 179");
@@ -86,18 +87,17 @@ public abstract class TestBase {
  //       *** Optional: Add DOCUMENT Information using extentHtmlReporter for Extent Reports ***
         extentHtmlReporter.config().setReportName("My UAT Report");
         extentHtmlReporter.config().setDocumentTitle("My Extent Report");
-
 //        DONE WITH CONFIGURATION
+
 //        Now attach Extent Report and HTML Reporter
         extentReports.attachReporter(extentHtmlReporter);
 
-//        Create Extent Test Report
+//       Now create Extent Test Report
         extentTest = extentReports.createTest("My First Test Case", "Batch 179 Test Cases");
     }
     @AfterAll
     public static void flushExtentReports(){
-//  Required for generating the reports
-        extentReports.flush();
+        extentReports.flush();  //  MANDATORY => Required for generating the reports
     }
 
     //DROPDOWN

@@ -13,12 +13,12 @@ import java.time.Duration;
 public class HW14_Synchronization4 extends TestBase {
     @Test
     public void test4(){
-//        EXPLICIT WAIT MUST BE USER IMPLICIT WAIT CANNOT HANDLE CAUSE OF THE
+//        EXPLICIT WAIT MUST BE USED WHEN IMPLICIT WAIT CANNOT HANDLE THE WAITING ISSUE
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
         //    Click enable Button
         driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
-//        Assert.assertTrue(driver.findElement(By.xpath("//input[@type='text']")).isEnabled()); //FAILS SO EXPLICIT MUST BE USED
+//        Assert.assertTrue(driver.findElement(By.xpath("//input[@type='text']")).isEnabled()); //IF FAILS,  EXPLICIT WAIT MUST BE USED
         //    And verify the message is equal to “It's enabled!”
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement enabledMessage=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
@@ -31,7 +31,7 @@ public class HW14_Synchronization4 extends TestBase {
 
 //        click on disable button
         driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
-        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@type='text']")).isDisplayed());
+        Assertions.assertTrue(driver.findElement(By.xpath("//input[@type='text']")).isDisplayed());
 
     }
 }
