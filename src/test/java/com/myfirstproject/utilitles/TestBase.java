@@ -29,6 +29,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public abstract class TestBase {
     /*
     - We keep this class abstract because we don't want to create object from this class
@@ -435,6 +438,120 @@ public abstract class TestBase {
         }
         //       4. return the path of the image as string. (THIS WILL BE USED TO ATTACH IN THE EXTENT REPORTS)
         return new File(filePath).getAbsolutePath();
+    }
+
+    //       ****** MORE REUSABLE METHODS ******
+    //    Accept a URL and navigates to that page
+    public static void openURL(String url){
+        driver.get(url);
+    }
+
+
+   /*
+   SELENIUM VERIFICATION REUSABLE METHODS
+    */
+    /**
+     * Verifies whether the element is displayed on page
+     * fails if the element is not found or not displayed
+     *
+     * @param element
+     */
+    public static void verifyElementDisplayed(WebElement element) {
+        try {
+            assertTrue(element.isDisplayed(), "Element is not visible: " + element);
+        } catch (NoSuchElementException e) {
+            org.junit.jupiter.api.Assertions.fail(("Element not found: " + element));
+        }
+    }
+
+    /**
+     * Verifies whether the element matching the provided locator is displayed on page
+     * fails if the element matching the provided locator is not found or not displayed
+     *
+     * @param by
+     */
+    public static void verifyElementDisplayed(By by) {
+        try {
+            assertTrue(driver.findElement(by).isDisplayed(), "Element not visible: " + by);
+        } catch (NoSuchElementException e) {
+            org.junit.jupiter.api.Assertions.fail(("Element not found: " + by));
+        }
+    }
+    /**
+     * Verifies whether the element matching the provided locator is NOT displayed on page
+     * fails if the element matching the provided locator is not found or not displayed
+     *
+     * @param by
+     */
+    public static void verifyElementNotDisplayed(By by) {
+        try {
+            assertFalse(driver.findElement(by).isDisplayed(),"Element should not be visible: " + by);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Verifies whether the element matching the provided WebElement is NOT displayed on page
+     * fails if the element matching the WebElement is not found or not displayed
+     * @paramWebElement
+     */
+    public static void verifyElementNotDisplayed(WebElement element) {
+        try {
+            assertFalse(element.isDisplayed(),"Element should not be visible: " + element);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void verifyElementClickable(WebElement element) {
+        try {
+            assertTrue(element.isEnabled(),"Element not visible: " + element);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+
+        }
+    }
+    public static void verifyElementNotClickable(WebElement element) {
+        try {
+            assertFalse( element.isEnabled(),"Element not visible: " + element);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
+       SELENIUM GET TEXT OF ELEMENT REUSABLE METHODS
+     */
+    public static String getTextWithTimeout(WebElement element, int timeout) {
+        String text="";
+        for (int i = 0; i < timeout; i++) {
+            try {
+                text = element.getText();
+                return text;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+        }
+        return null;
+    }
+
+    /*
+   SELENIUM TYPE IN AN INPUT REUSABLE METHODS
+   element = input element
+   text = text that you want to type
+   timeout = maximum wait
+     */
+    public static void sendKeysWithTimeout(WebElement element,String text,int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.sendKeys(text);
+                return;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+        }
     }
 
 
