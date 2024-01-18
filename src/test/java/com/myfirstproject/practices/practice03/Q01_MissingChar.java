@@ -14,7 +14,7 @@ public class Q01_MissingChar extends TestBase {
     public void test() {
 
         int counter = 0;
-        while (true) {
+        while (true) {  // create infinite loop and break it with if condition at line 41
             counter++;
             //Go to app
             driver.get("https://testcenter.techproeducation.com/index.php?page=form-authentication");
@@ -37,10 +37,10 @@ public class Q01_MissingChar extends TestBase {
             try {
                 successMessage = driver.findElement(By.xpath("//div[@role='alert']")).getText();
                 System.out.println("successMessage = " + successMessage);//You logged into a secure area!
-                boolean isSuccess = successMessage.contains("You logged into a secure area");
+                boolean isSuccess = successMessage.contains("You logged into a secure area");  // create boolean container to use in the if condition
                 if (isSuccess) {
                     System.out.println("counter = " + counter);
-                    break;
+                    break;  // without this, infinite loop will never break
                 }
 
             } catch (Exception ignored) {

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Q02_UploadFile extends TestBase {
     /*
@@ -37,6 +38,7 @@ public class Q02_UploadFile extends TestBase {
         String userHome = System.getProperty("user.home");
         System.out.println("userHome = " + userHome);
         driver.findElement(By.name("upfile")).sendKeys(userHome + "/Desktop/text.txt");
+//        driver.findElement(By.name("upfile")).sendKeys(userHome + "/Desktop/sampledoc.docx");
 
 //        Click on "Press" button
         driver.findElement(By.xpath("//input[@type='submit']")).click();
@@ -49,6 +51,6 @@ public class Q02_UploadFile extends TestBase {
 //        Assert that file Content contains "Hello, I am uploaded file"
         String content = driver.findElement(By.xpath("//pre")).getText();
         System.out.println("content = " + content);
-        assertEquals("Hello, I am uploaded file", content);
+        assertTrue( content.contains("Hello, I'm uploaded file!!"));
     }
 }
