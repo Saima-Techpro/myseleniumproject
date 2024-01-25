@@ -13,7 +13,7 @@ public class Q05_ActionsClass extends TestBase {
         Click on "Create New Account"
     And
         Fill all the boxes by using keyboard actions class
-​
+
     Note: Do not use any locator.
      */
 
@@ -32,12 +32,12 @@ public class Q05_ActionsClass extends TestBase {
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.ENTER)
-                .pause(500)
+                .pause(2000)
                 .sendKeys("John")
                 .sendKeys(Keys.TAB)
                 .sendKeys("Doe")
                 .sendKeys(Keys.TAB)
-                .sendKeys("1234")
+                .sendKeys("john_doe@gmail.com")
                 .sendKeys(Keys.TAB)
                 .sendKeys("John.123")
                 .sendKeys(Keys.TAB)
@@ -47,14 +47,17 @@ public class Q05_ActionsClass extends TestBase {
                 .sendKeys("Jul")
                 .sendKeys(Keys.TAB)
                 .sendKeys("1999")
+                .pause(2000)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.ARROW_RIGHT)
+                .pause(2000)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
+                .pause(2000)
                 .sendKeys(Keys.ENTER)
                 .perform();
 

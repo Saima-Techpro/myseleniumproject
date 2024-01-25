@@ -33,6 +33,7 @@ public class Q06_WaitForClickability extends TestBase {
 
 //        Click on "Click Me!" button
         WebElement button1 = driver.findElement(By.id("button1"));
+//        button1.click();  // traditional way ... if implicit wait is enough, it wil work otherwise it will fail
         waitForClickablility(button1,10).click();
         captureScreenshotEntirePage();
 

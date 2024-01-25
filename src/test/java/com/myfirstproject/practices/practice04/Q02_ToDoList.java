@@ -45,7 +45,7 @@ public class Q02_ToDoList extends TestBase {
 
 //        Delete all todos.
         driver.findElements(By.xpath("//i[@class='fa fa-trash']")).forEach(WebElement::click);//Lambda is recommended
-
+        System.out.println(driver.findElements(By.xpath("//li")).size());
 //        Assert that all todos deleted.
         //To handle the synchronization issue we need to put a little wait
         Thread.sleep(1000);//To use hard wait is not recommended. But some database issues need hard wait.

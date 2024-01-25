@@ -36,7 +36,7 @@ public class Q01_FillFormUploadFile extends TestBase {
 //        Choose a file and upload it
         //Click on choose file button
         WebElement chooseFileButton = driver.findElement(By.xpath("//input[@type='file']"));
-        String pathOfTheFile = System.getProperty("user.home") + "/Desktop/image.png";
+        String pathOfTheFile = System.getProperty("user.home") + "/Desktop/flower.jpeg";
         //If robot class does not work, use: chooseFileButton.sendKeys(pathOfTheFile);
         clickByJS(chooseFileButton);
         uploadFile(pathOfTheFile);
