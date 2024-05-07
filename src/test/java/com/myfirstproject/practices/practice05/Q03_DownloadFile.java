@@ -18,7 +18,7 @@ public class Q03_DownloadFile extends TestBase {
 */
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
 
 //        Go to https://testpages.herokuapp.com/
         driver.get("https://testpages.herokuapp.com/");
@@ -31,8 +31,9 @@ public class Q03_DownloadFile extends TestBase {
 
 //        Verify that file is downloaded
         String pathOfTheFile = System.getProperty("user.home")+"/Downloads/textfile.txt";
-        Thread.sleep(500);//Saving file to the disk might take a little time. This wait is for saving issue.
+        waitFor(5); //Saving file to the disk might take a little time. This wait is for saving issue.
         boolean isExists = Files.exists(Path.of(pathOfTheFile));
         assertTrue(isExists);
     }
+
 }

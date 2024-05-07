@@ -2,6 +2,7 @@ package com.myfirstproject;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Day01_BasicNavigations {
@@ -13,6 +14,19 @@ public class Day01_BasicNavigations {
         driver.manage().window().maximize();
 //        Open google home page https://www.walmart.com/
         driver.get("https://www.walmart.com/");
+
+        Thread.sleep(2000);
+        //
+        driver.get("https://www.amazon.com");
+        driver.switchTo().newWindow(WindowType.TAB).get("https://www.google.com");
+
+        //
+        driver.get("https://www.amazon.com");
+        driver.switchTo().newWindow(WindowType.WINDOW).get("https://www.google.com");
+
+        Thread.sleep(2000);
+        driver.manage().window().minimize();
+
 //        wait for 5 seconds at this step
         Thread.sleep(5000);
 //        On the same class, Navigate to amazon home page https://www.amazon.com/
