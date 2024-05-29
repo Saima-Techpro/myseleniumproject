@@ -35,8 +35,33 @@ public class Q01_Excel_Earnings  {
         Sheet sheet1 = workbook.getSheet("Sheet1");
         //Sheet sheet1 = workbook.getSheetAt(0);
 
+        System.out.println("sheet1.getLastRowNum() = " + sheet1.getLastRowNum());
+
+        System.out.println(Double.valueOf(sheet1.getRow(1).getCell(1).toString())); // 512.0
+
         List<Double> earnings = new ArrayList<>();
 
+//        for(int i = 1; i <= sheet1.getLastRowNum(); i++) {
+//            Row row = sheet1.getRow(i);
+//            if (row != null) {
+//                Cell cell = row.getCell(1);
+//                if (cell != null) {
+//                    try {
+//                        Double value = Double.valueOf(cell.toString());
+//                        earnings.add(value);
+//                    } catch (NumberFormatException e) {
+//                        // Handle the case where cell value is not a valid number
+//                        System.out.println("Invalid number format in row " + i + ", column 1.");
+//                    }
+//                } else {
+//                    System.out.println("Cell in row " + i + ", column 1 is null.");
+//                }
+//            } else {
+//                System.out.println("Row " + i + " is null.");
+//            }
+//        }
+
+        System.out.println("==================");
         for(int i=1; i<=sheet1.getLastRowNum(); i++){
             earnings.add(Double.valueOf(sheet1.getRow(i).getCell(1).toString()));
         }

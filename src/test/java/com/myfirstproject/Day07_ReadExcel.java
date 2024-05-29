@@ -29,6 +29,7 @@ public class Day07_ReadExcel {
 //            workbook.getSheet("Sheet1"); // OR  get first sheet by name
 //        Go to first row
             Row row1 = sheet1.getRow(0);//index stars at 0
+            System.out.println("sheet1.getLastRowNum() = " + sheet1.getLastRowNum());
 //        Go to first cell on that first row and print
             Cell r1c1 = row1.getCell(0);//index starts at 0
             System.out.println("First Row, first cell: "+r1c1);

@@ -39,10 +39,11 @@ public class Q04_Calculator {
     }
 
     @Test
-    public void test01() {
+    public void test01() throws InterruptedException {
 
 //        Navigate to  https://testpages.herokuapp.com/styled/index.html
         driver.get("https://testpages.herokuapp.com/styled/index.html");
+        Thread.sleep(3000);
 
 //        Click on  Calculator under Micro Apps
         driver.findElement(By.id("calculatetest")).click();
