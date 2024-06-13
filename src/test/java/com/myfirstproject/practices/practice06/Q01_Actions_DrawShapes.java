@@ -52,6 +52,7 @@ public class Q01_Actions_DrawShapes extends TestBase {
         driver.findElement(By.xpath("//button[@data-action='clear']")).click();
 
 //        Close the page
+        driver.close();
 
     }
 }

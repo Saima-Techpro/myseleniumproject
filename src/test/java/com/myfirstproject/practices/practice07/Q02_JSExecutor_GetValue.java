@@ -26,7 +26,6 @@ public class Q02_JSExecutor_GetValue extends TestBase {
         scrollIntoViewJS(checkBoxes.get(0));
 
         for (int i=0; i<10; i++){
-
             clickByJS(checkBoxes.get(i));
             String element = (String)((JavascriptExecutor)driver).executeScript("return arguments[0].value;",checkBoxes.get(i) );
             System.out.println(element);

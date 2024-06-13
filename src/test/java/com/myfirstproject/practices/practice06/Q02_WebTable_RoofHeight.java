@@ -51,15 +51,12 @@ public class Q02_WebTable_RoofHeight extends TestBase {
         //Calculate the index of min year
         int minYearIdx = 0;
         for (int i=0; i<years.size(); i++){
-
             if(Integer.parseInt(years.get(i).getText()) == minYear){
                 minYearIdx = i;
             }
-
         }
 
         System.out.println("minYearIdx = " + minYearIdx);
-
 
 //        Put all heights into a list
         List<WebElement> heights = driver.findElements(By.xpath("(//tbody)[2]/tr/td[3]"));
